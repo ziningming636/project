@@ -44,34 +44,36 @@ document.addEventListener("DOMContentLoaded", function () {
   
 
   // ======= 購物車功能 =======
-  let cartCount = 0;
+  if (!sessionStorage.getItem("cart")) {
+    sessionStorage.setItem("cart", JSON.stringify([]));
+  }
 
   const addToCartButtons = document.querySelectorAll(".add-to-cart");
   addToCartButtons.forEach(function (button) {
     button.addEventListener("click", function () {
-      cartCount++;
-      alert("Item added to the cart.");
+      const itemName = this.previousElementSibling.textContent;
+      let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+      cart.push(itemName);
+      sessionStorage.setItem("cart", JSON.stringify(cart));
+      alert(`${itemName} added to the cart.`);
     });
   });
 
   const clearCartBtn = document.getElementById("clear-cart");
   if (clearCartBtn) {
     clearCartBtn.addEventListener("click", function () {
-      if (cartCount > 0) {
-        cartCount = 0;
-        alert("Cart cleared.");
-      } else {
-        alert("No items to clear.");
-      }
+      sessionStorage.setItem("cart", JSON.stringify([]));
+      alert("Cart cleared.");
     });
   }
 
   const processOrderBtn = document.getElementById("process-order");
   if (processOrderBtn) {
     processOrderBtn.addEventListener("click", function () {
-      if (cartCount > 0) {
+      let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+      if (cart.length > 0) {
         alert("Thank you for your order.");
-        cartCount = 0;
+        sessionStorage.setItem("cart", JSON.stringify([]));
       } else {
         alert("Cart is empty.");
       }
@@ -79,13 +81,32 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const viewCartBtn = document.getElementById("view-cart");
-if (viewCartBtn) {
-  viewCartBtn.addEventListener("click", function () {
-    if (cartCount > 0) {
-      alert(`You have ${cartCount} item(s) in your cart.`);
-    } else {
-      alert("Your cart is empty.");
-    }
-  });
-}
+  if (viewCartBtn) {
+    viewCartBtn.addEventListener("click", function () {
+      let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+      const modal = document.getElementById("cart-modal");
+      const modalContent = document.getElementById("cart-items");
+      modalContent.innerHTML = "";
+      if (cart.length > 0) {
+        cart.forEach(function(item) {
+          const li = document.createElement("li");
+          li.textContent = item;
+          modalContent.appendChild(li);
+        });
+      } else {
+        const li = document.createElement("li");
+        li.textContent = "Your cart is empty.";
+        modalContent.appendChild(li);
+      }
+      modal.style.display = "block";
+    });
+  }
+
+  const closeModalBtn = document.getElementById("close-cart");
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener("click", function () {
+      const modal = document.getElementById("cart-modal");
+      modal.style.display = "none";
+    });
+  }
 });
