@@ -12,24 +12,30 @@
 </head>
 
 <body>
+  <!-- Header -->
   <header>
     <div class="header-container">
       <img src="images/Client1_LogoPalette2_96BAA0.png" alt="Bloom Valley Nursery Logo" class="logo">
       <h1>Bloom Valley Nursery</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+        <a href="community.html">Community</a>
+      </nav>
     </div>
-    <nav>
-      <a href="index.html">Home</a> |
-      <a href="gallery.html">Gallery</a> |
-      <a href="contact.html">Contact</a> |
-      <a href="community.html">Community</a>
-    </nav>
   </header>
 
+  <!-- Main Content -->
   <main>
-    <h2>Welcome!</h2>
-    <p>We grow happiness with every plant.</p>
+    <!-- Welcome Section -->
+    <section class="welcome">
+      <h2>Welcome!</h2>
+      <p>We grow happiness with every plant.</p>
+    </section>
 
-    <section>
+    <!-- About Section -->
+    <section class="about">
       <h3>About Us</h3>
       <p>
         At Bloom Valley Nursery, we specialize in bringing nature into your home.
@@ -38,30 +44,61 @@
       </p>
     </section>
 
-    <section>
+    <!-- Promo Section -->
+    <section class="promo">
+      <div class="promo-card">
+        <h3>Indoor Plants</h3>
+        <p>Perfect for brightening your home and office.</p>
+      </div>
+      <div class="promo-card">
+        <h3>Outdoor Landscaping</h3>
+        <p>Transform your garden with our landscaping solutions.</p>
+      </div>
+      <div class="promo-card">
+        <h3>Seasonal Specials</h3>
+        <p>Limited-time offers on rare and exotic plants!</p>
+      </div>
+    </section>
+
+    <!-- Featured Plants Section -->
+    <section class="featured">
       <h3>Featured Plants</h3>
-      <ul>
-        <li>Lavender in Ceramic Pot</li>
-        <li>Miniature Succulent Set</li>
-        <li>Hanging Spider Plant</li>
-      </ul>
+      <div class="featured-grid">
+        <div class="plant-card">Lavender in Ceramic Pot</div>
+        <div class="plant-card">Miniature Succulent Set</div>
+        <div class="plant-card">Hanging Spider Plant</div>
+      </div>
     </section>
   </main>
 
- <footer>
-  <p>&copy; 2025 Bloom Valley Nursery</p>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <!-- 訂閱功能 -->
+      <div class="subscribe">
+        <input type="email" id="subscribe-email" placeholder="Enter your email" required>
+        <button id="subscribe-btn">Subscribe</button>
+      </div>
 
-  <!-- 訂閱功能：輸入 email + 按鈕 -->
-  <input
-    type="email"
-    id="subscribe-email"
-    placeholder="Enter your email"
-    required
-    style="margin-top: 10px; padding: 5px;"
-  >
-  <button id="subscribe-btn">Subscribe</button>
-</footer>
+      <!-- 社群連結 -->
+      <div class="social">
+        <a href="#">Facebook</a> |
+        <a href="#">Instagram</a>
+      </div>
 
+      <!-- 導覽列 -->
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+        <a href="community.html">Community</a>
+      </nav>
+
+      <p>&copy; 2025 Bloom Valley Nursery</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
   <script src="common.js"></script>
 </body>
 </html>
