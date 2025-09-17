@@ -1,12 +1,12 @@
 body {
-  background-color: #f0fff0;
+  background-color: #f7f7f7;
   font-family: 'Lato', sans-serif;
   margin: 0;
   padding: 0;
 }
 
 header {
-  background-color: #d4943a;
+  background-color: #f0c06d;
   color: white;
   padding: 15px 0;
 }
@@ -39,7 +39,7 @@ h3 {
 .header-container {
   display: flex;
   align-items: center;
-  background-color: #d4943a;
+  background-color: #f0c06d;
   padding: 10px 20px;
   max-width: 1200px;
   margin: 0 auto;
