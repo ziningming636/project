@@ -1,5 +1,5 @@
 body {
-  background-color: #f7f7f7;
+  background-color: #C6E2CE;
   font-family: 'Lato', sans-serif;
   margin: 0;
   padding: 0;
@@ -8,7 +8,11 @@ body {
 header {
   background-color: #f0c06d;
   color: white;
-  padding: 15px 0;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
 }
 
 footer {
@@ -18,13 +22,14 @@ footer {
   text-align: center;
 }
 
-nav a {
+/* nav a {
   color: white;
   margin: 0 10px;
   text-decoration: none;
-}
+} */
 
 main {
+  margin-left: 240px; /* 留出 sidebar 空間 */
   padding: 20px;
 }
 
@@ -36,13 +41,12 @@ h3 {
   font-family: 'Montserrat', sans-serif;
 }
 
-.header-container {
+.body-container {
   display: flex;
   align-items: center;
-  background-color: #f0c06d;
-  padding: 10px 20px;
+  padding: 0;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .logo {
@@ -55,4 +59,209 @@ h3 {
   margin: 0;
   font-size: 2em;
   font-family: 'Playfair Display', serif;
+}
+
+/* body nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+body nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s, text-decoration 0.3s;
+}
+
+body nav a:hover {
+  color: #002023;
+  text-decoration: underline;
+} */
+/* ===== Modal Styles ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+}
+
+#cart-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 15px 0;
+}
+
+#cart-items li {
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+#clear-cart,
+#process-order {
+  margin: 10px 5px;
+  padding: 8px 16px;
+  background-color: #8bc34a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#clear-cart:hover,
+#process-order:hover {
+  background-color: #6fa22e;
+}
+
+/* ===== Sidebar Styles ===== */
+.sidebar {
+  position: fixed;
+  top: 100px;
+  left: 0;
+  width: 220px;
+  height: calc(100% - 100px);
+  background-color: transparent;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 100;
+}
+
+.sidebar a {
+  color: #002023;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: rgba(0,0,0,0.1);
+  color: #002023;
+  border-radius: 5px;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .body-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .body-container h1 {
+    font-size: 1.5em;
+    margin: 10px 0;
+  }
+
+  /* body nav {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  } */
+
+  .promo {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .promo-card {
+    width: 90%;
+    margin-bottom: 15px;
+  }
+
+  .featured-grid {
+    flex-direction: column;
+  }
+
+  .plant-card {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .modal-content {
+    width: 95%;
+    margin: 20% auto;
+  }
+
+  footer .footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-container nav {
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px 0;
+  }
+
+  main {
+    margin-left: 0;
+    padding: 20px;
+  }
+}
+
+/* ===== Responsive Tables (for Gallery and others) ===== */
+@media (max-width: 768px) {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  td {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  td img {
+    max-width: 100%;
+    height: auto;
+  }
 }
